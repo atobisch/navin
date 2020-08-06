@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<a href="{% url 'calc:home' %}">Calculator App</a>
+<br>
+
+<a href="{% url 'travello:home' %}">Travello App</a>
+<br>
+
+<p>Registieren</p>
+<p>Login</p>
+
+
+{% endblock %}

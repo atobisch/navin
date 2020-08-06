@@ -1,0 +1,13 @@
+{% extends 'calc/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<p>Was möchten Sie berechnen? </p>
+<a href="{% url 'calc:add_view' %}">Addieren</a>
+<br>
+<a href="{% url 'calc:mult_view' %}">Multiplizieren</a>
+<br>
+<a href="{% url 'calc:sub_view' %}">Subtrahieren</a>
+
+{% endblock %}

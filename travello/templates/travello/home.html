@@ -1,0 +1,14 @@
+{% extends 'travello/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Das Travello Home</h2>
+<p>Die Inhalte werden von PostgreSQL geladen</p>
+<br>
+{% for dest in dests %}
+<p> Ort: {{dest.name}}</p>
+<p> Beschreibung: {{dest.desc}}</p>
+<p> Preis: {{dest.price}}</p>
+<br>
+{% endfor %}
+{% endblock %}

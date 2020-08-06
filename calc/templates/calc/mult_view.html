@@ -1,0 +1,13 @@
+{% extends 'calc/base.html' %}
+
+{% block title %}Multiplizieren{% endblock %}
+
+{% block content %}
+<p>Multiplizieren:</p>
+<form method="post" action="{% url 'calc:mult' %}">
+    {% csrf_token %}
+    Enter first number: <input type="text" name="num1"> <br>
+    Enter second number: <input type="text" name="num2"> <br>
+    <input type="submit">
+</form>
+{% endblock %}
