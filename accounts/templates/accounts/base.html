@@ -15,5 +15,10 @@
         {% block content %}
         {% endblock %}
     </div>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+    </div>
 </body>
 </html>
