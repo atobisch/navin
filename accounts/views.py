@@ -16,7 +16,7 @@ def register(request):
 
         #Checks
         if password1==passsword2:
-            if user.objects.filter(username=username).exists():
+            if User.objects.filter(username=username).exists():
                 messages.info(request,'Username already taken')
                 return redirect('accounts:register')
             elif User.objects.filter(email=email).exists():
