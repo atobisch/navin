@@ -26,10 +26,27 @@ def register(request):
                 user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
                 user.save()
                 messages.info(request, 'user created')
-                return redirect('/')
+                return redirect('accounts:login')
         else:
             messages.info(request, 'Password not matching')
             return redirect('accounts:register')
     else: # Dann ist die Method GET
         return render(request, 'accounts/register.html')
-# Create your views here.
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect("/")
+        else:
+            messages.info(request, 'invalid credentials')
+            return redirect('accounts:login')
+    elif request.method == 'GET':
+        return render(request, 'accounts/login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('accounts:home')

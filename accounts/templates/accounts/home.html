@@ -9,11 +9,13 @@
 <a href="{% url 'travello:home' %}">Travello App</a>
 <br>
 <br>
+{% if user.is_authenticated %}
+<p>Hello. You are logged in</p>
+<a href="{% url 'accounts:logout' %}">Logout</a>
+{% else %}
 <a href="{% url 'accounts:register' %}">Registrieren</a>
-
-
-<p>Login</p>
-
+<a href="{% url 'accounts:login' %}">Login</a>
+{% endif %}
 <br>
 <br>
 <a href="admin/">Admin Zugang</a>
