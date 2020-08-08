@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 
+from travello.models import Destination
+
+
 def home_view(request):
     return render(request, 'accounts/home.html')
 
@@ -46,6 +49,24 @@ def login(request):
             return redirect('accounts:login')
     elif request.method == 'GET':
         return render(request, 'accounts/login.html')
+
+def write(request):
+    if request.method == 'GET':
+        return render(request, 'accounts/write.html')
+    elif request.method == 'POST':
+        # Userinputs in Variablen speichern
+        ort=request.POST['name']
+        beschreibung=request.POST['desc']
+        preis=int(request.POST['price'])
+
+        newdest = Destination.objects.create() #Object anlegen
+        #Objectattribute beschreiben
+        newdest.name=(ort)
+        newdest.desc = (beschreibung)
+        newdest.price = (preis)
+        newdest.save() #In die Datenbank speichern
+        return redirect('travello:home')
+
 
 def logout(request):
     auth.logout(request)

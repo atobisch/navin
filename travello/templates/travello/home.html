@@ -6,9 +6,10 @@
 <p>Die Inhalte werden von PostgreSQL geladen</p>
 <br>
 {% for dest in dests %}
+<p>---------------------------------</p>
+<p> ID: {{dest.id}}</p>
 <p> Ort: {{dest.name}}</p>
 <p> Beschreibung: {{dest.desc}}</p>
 <p> Preis: {{dest.price}}</p>
-<br>
 {% endfor %}
 {% endblock %}

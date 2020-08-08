@@ -1,0 +1,15 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Write{% endblock %}
+
+{% block content %}
+<h2>Schreibe einen neuen Artikel für die Travllo-App</h2>
+<p>Bitte geben Sie folgendes ein:</p>
+<form method="post" action="{% url 'accounts:write' %}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Ort eingeben"><br>
+    <input type="text" name="desc" placeholder="Beschreibung eingeben"><br>
+    <input type="integer" name="price" placeholder="Preis eigeben"><br>
+    <input type="submit">
+</form>
+{% endblock %}

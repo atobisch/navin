@@ -3,20 +3,23 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<a href="{% url 'calc:home' %}">Calculator App</a>
-<br>
+    <a href="{% url 'calc:home' %}">Calculator App</a>
+    <br>
 
-<a href="{% url 'travello:home' %}">Travello App</a>
-<br>
-<br>
-{% if user.is_authenticated %}
-<p>Hello. You are logged in</p>
-<a href="{% url 'accounts:logout' %}">Logout</a>
-{% else %}
-<a href="{% url 'accounts:register' %}">Registrieren</a>
-<a href="{% url 'accounts:login' %}">Login</a>
-{% endif %}
-<br>
-<br>
-<a href="admin/">Admin Zugang</a>
-{% endblock %}
+    <a href="{% url 'travello:home' %}">Travello App</a>
+    <br>
+    <br>
+    {% if user.is_authenticated %}
+        <p>Hello. You are logged in</p>
+        <a href="{% url 'accounts:logout' %}">Logout</a>
+        <br>
+        <p>Schreibe einen neuen Travello Betrag</p>
+        <a href="{% url 'accounts:write' %}">Neuen Beitrag erstellen<a>
+    {% else %}
+        <a href="{% url 'accounts:register' %}">Registrieren</a>
+        <a href="{% url 'accounts:login' %}">Login</a>
+    {% endif %}
+    <br>
+    <br>
+    <a href="admin/">Admin Zugang</a>
+    {% endblock %}
